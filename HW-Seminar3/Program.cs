@@ -4,15 +4,15 @@ int z = Convert.ToInt32(Console.ReadLine());
 
 //задача 19
 //Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом
-if(z == 19)
+if (z == 19)
 {
     Console.WriteLine("Введите пятизначное число: ");
     int number19 = Convert.ToInt32(Console.ReadLine());
 
-    int numberA = GetArray(number19);
-    int numberB = GetArr1(number19);
+    int[] numberA = GetArray(number19);
+    int[] numberB = GetArr1(number19);
 
-    if(numberA == numberB)
+    if (numberA[0] == numberB[0] & numberA[1] == numberB[1])
     {
         Console.WriteLine("Yes, palindrome");
     }
@@ -21,7 +21,7 @@ if(z == 19)
         Console.WriteLine("No");
     }
 
-    int GetArr1(int number1)
+    int[] GetArr1(int number1)
     {
         int length1 = GetLengthNumber(number1);
         int[] array1 = new int[length1];
@@ -30,10 +30,10 @@ if(z == 19)
             array1[i] = number1 % 10;
             number1 /= 10;
         }
-        return array1 [number1];
+        return array1;
     }
 
-    int GetArray(int number)
+    int[] GetArray(int number)
     {
         int length = GetLengthNumber(number);
         int[] array = new int[length];
@@ -42,13 +42,13 @@ if(z == 19)
             array[i] = number % 10;
             number /= 10;
         }
-        return array [number];
+        return array;
     }
 
     int GetLengthNumber(int number1)
     {
         int count = 0;
-        while(number1 > 0)
+        while (number1 > 0)
         {
             number1 /= 10;
             count++;
@@ -64,7 +64,7 @@ if (z == 21)
 {
     double Distance3d(int xa, int ya, int za, int xb, int yb, int zb)
     {
-        double dist3D = Math.Sqrt((xb - xa)*(xb - xa) + (yb - ya)*(yb - ya) + (zb - za)*(zb - za));
+        double dist3D = Math.Sqrt((xb - xa) * (xb - xa) + (yb - ya) * (yb - ya) + (zb - za) * (zb - za));
         return dist3D;
     }
 
@@ -98,24 +98,24 @@ if (z == 23)
         Console.WriteLine("Ошибка! Это не число!");
         return;
     }
-    int [] result23 = GetTableOfCubes(N);
+    int[] result23 = GetTableOfCubes(N);
     PrintArray(result23);
 
-    int [] GetTableOfCubes(int n)
+    int[] GetTableOfCubes(int n)
     {
-        int [] array = new int [n];
+        int[] array = new int[n];
         for (int i = 0; i < array.Length; i++)
         {
-            array [i] = (i + 1)*(i + 1)*(i + 1);
+            array[i] = (i + 1) * (i + 1) * (i + 1);
         }
         return array;
     }
 
-    void PrintArray(int [] array)
+    void PrintArray(int[] array)
     {
         for (int i = 0; i < array.Length; i++)
         {
-            Console.Write($"{array [i]} ");
+            Console.Write($"{array[i]} ");
         }
     }
 }
